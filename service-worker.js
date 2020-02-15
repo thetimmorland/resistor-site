@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/resistor-site/precache-manifest.faadd15db4b815ed472fba7a5c30a93b.js"
+  "/resistor-site/precache-manifest.9be8818330df38eff7c448f68fae5eab.js"
 );
 
 self.addEventListener('message', (event) => {
