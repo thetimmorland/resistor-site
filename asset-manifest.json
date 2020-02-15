@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/resistor-site/static/css/main.d1b05096.chunk.css",
+    "main.js": "/resistor-site/static/js/main.b33f3192.chunk.js",
+    "main.js.map": "/resistor-site/static/js/main.b33f3192.chunk.js.map",
+    "runtime-main.js": "/resistor-site/static/js/runtime-main.40a2bc6a.js",
+    "runtime-main.js.map": "/resistor-site/static/js/runtime-main.40a2bc6a.js.map",
+    "static/js/2.1b494354.chunk.js": "/resistor-site/static/js/2.1b494354.chunk.js",
+    "static/js/2.1b494354.chunk.js.map": "/resistor-site/static/js/2.1b494354.chunk.js.map",
+    "index.html": "/resistor-site/index.html",
+    "precache-manifest.faadd15db4b815ed472fba7a5c30a93b.js": "/resistor-site/precache-manifest.faadd15db4b815ed472fba7a5c30a93b.js",
+    "service-worker.js": "/resistor-site/service-worker.js",
+    "static/css/main.d1b05096.chunk.css.map": "/resistor-site/static/css/main.d1b05096.chunk.css.map",
+    "static/js/2.1b494354.chunk.js.LICENSE.txt": "/resistor-site/static/js/2.1b494354.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/resistor-site/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.40a2bc6a.js",
+    "static/js/2.1b494354.chunk.js",
+    "static/css/main.d1b05096.chunk.css",
+    "static/js/main.b33f3192.chunk.js"
+  ]
+}
