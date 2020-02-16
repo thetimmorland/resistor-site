@@ -1,76 +1,50 @@
 import React from "react";
-import cv from "./opencv";
-
-import Webcam from "react-webcam";
-import GitHubIcon from "@material-ui/icons/GitHub";
+import WebWorker from "react-webworker";
 import {
-  AppBar,
   Box,
   CssBaseline,
   LinearProgress,
   Container,
-  MenuItem,
   Grid,
   Paper,
-  Toolbar,
-  Typography
+  Typography,
+  Snackbar,
+  Alert
 } from "@material-ui/core";
+import MuiAlert from "@material-ui/lab/Alert";
+import TitleBar from "./TitleBar";
 
-cv["onRuntimeInitialized"] = () => {
-  console.log(cv.getBuildInformation());
-};
+const cvWorker = new Worker("./cv.worker.js");
 
 export default function App() {
-  const webcamRef = React.useRef(null);
+  const [webCamError, setWebCamError] = React.useState(false);
+  const [identifiedResistors, setIdentifiedResistors] = React.useState([]);
 
-  const capture = React.useCallback(() => {
-    const imageSrc = webcamRef.current.getScreenshot();
-  }, [webcamRef]);
-
-  const [resistorFound, updateResistorFound] = React.useState(false);
+  const appendResistor = resistor => {
+    setIdentifiedResistors([...identifiedResistors, resistor]);
+  };
 
   return (
     <>
       <CssBaseline />
-      <AppBar position="sticky">
-        <Toolbar>
-          <Grid
-            container
-            direction="row"
-            alignItems="center"
-            justify="space-between"
-          >
-            <Grid item>
-              <Typography variant="h6">Resistor site️</Typography>
-            </Grid>
-            <Grid item>
-              <MenuItem
-                onClick={() => {
-                  window.location.href =
-                    "https://github.com/thetimmorland/resistor-site";
-                }}
-              >
-                <GitHubIcon />
-              </MenuItem>
-            </Grid>
-          </Grid>
-        </Toolbar>
-      </AppBar>
+      <TitleBar />
       <Box m={1}>
         <Container maxWidth="sm">
           <Paper>
             <Box p={1}>
-              <Webcam
-                audio={false}
-                ref={webcamRef}
-                width="100%"
-                screenshotFormat="image/jpeg"
-              />
+              <WebWorker worker={cvWorker}>
+                <WebWorker.Data>{data => <p>data</p>}</WebWorker.Data>
+              </WebWorker>
               <LinearProgress />
             </Box>
           </Paper>
         </Container>
       </Box>
+      <Snackbar open={webCamError}>
+        <MuiAlert severity="error" variant="filled">
+          A Webcam is required to use this tool.
+        </MuiAlert>
+      </Snackbar>
     </>
   );
 }
